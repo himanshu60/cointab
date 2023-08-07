@@ -1,5 +1,5 @@
-# Cointab:
-Create a simple 2-Page website using Node.js and SQL database, Page 1 will have three
+# Cointab Assignment:
+In the given assignment create a simple 2-Page website using Node.js and SQL database, Page 1 will have three
 buttons namely Fetch Users, Delete Users, and User Details, on clicking the Fetch Users button the
 the application should fetch data from the (https://randomuser.me/) API and store it in a table of any
 name in the database, the data fetch should be in bulk for e.g., if the API returns a single record
@@ -41,9 +41,6 @@ The project provides the following API endpoints:
 3. GET /get/filter: Retrieves user data with specific filters applied.
 4. GET /users-pagination: Retrieves user data with pagination.
 5. DELETE /table-delete: Deletes the user table from the database.
-
-## Video Walkthrough of the project
-
 
 
 ## Features
