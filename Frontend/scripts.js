@@ -1,5 +1,6 @@
 // Function to fetch users and store in the database
 let localhost = "http://localhost:8080";
+let deployUrl="https://busy-plum-cuttlefish-gear.cyclic.app"
 // Get references to the DOM elements
 const fetchUsersBtn = document.getElementById("fetchUsersBtn");
 const deleteUsersBtn = document.getElementById("deleteUsersBtn");
@@ -25,7 +26,7 @@ async function fetchUsers() {
     fetchUsersBtn.disabled = true;
 
     // Make the API call to fetch users from the backend
-    const response = await fetch(`${localhost}/fetch-get-users`);
+    const response = await fetch(`${deployUrl}/fetch-get-users`);
     const data = await response.json();
 
     // Display success message or error alert based on the response
@@ -53,7 +54,7 @@ async function deleteUsers() {
     deleteUsersBtn.disabled = true;
 
     // Make the API call to delete all users from the backend
-    const response = await fetch(`${localhost}/delete-table-data`, {
+    const response = await fetch(`${deployUrl}/delete-table-data`, {
       method: "DELETE",
     });
 
