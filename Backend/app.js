@@ -118,7 +118,7 @@ app.get("/all-users", async (req, res) => {
     res.send({ error });
   }
 });
-
+// get data
 app.get("/fetch-get-users", async (req, res) => {
   const numRecords = 50;
   try {
