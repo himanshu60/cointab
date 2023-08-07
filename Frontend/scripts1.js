@@ -48,28 +48,51 @@ function createUserRow(user) {
 //   filter
 async function fetchData() {
     const gender = genderFilter.value;
-    
-
-    fetch(`${deployUrl}/users/filter?gender=${gender}`)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then((data) => {
-            console.log(data);
-            const users = data;
-            const tableBody = document.querySelector('tbody');
-            tableBody.innerHTML = "";
-            users.forEach((user) => {
-                const userRow = createUserRow(user);
-                tableBody.appendChild(userRow);
+    if(gender=="All"){
+        
+        fetch(`${deployUrl}/all-users`)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data);
+                const users = data;
+                const tableBody = document.querySelector('tbody');
+                tableBody.innerHTML = "";
+                users.forEach((user) => {
+                    const userRow = createUserRow(user);
+                    tableBody.appendChild(userRow);
+                });
+            })
+            .catch((error) => {
+                console.error('Error:', error.message);
             });
-        })
-        .catch((error) => {
-            console.error('Error:', error.message);
-        });
+    }else{
+        fetch(`${deployUrl}/users/filter?gender=${gender}`)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data);
+                const users = data;
+                const tableBody = document.querySelector('tbody');
+                tableBody.innerHTML = "";
+                users.forEach((user) => {
+                    const userRow = createUserRow(user);
+                    tableBody.appendChild(userRow);
+                });
+            })
+            .catch((error) => {
+                console.error('Error:', error.message);
+            });
+    }
+
 
     // Display the fetched data in the display area
 }
